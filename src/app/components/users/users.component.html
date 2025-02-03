@@ -1,0 +1,71 @@
+<div class="user-component">
+    <div class="clearfix col-lg-12 p-3 border border-bottom-1">
+        <a href="#" class="alert-link ms-4">
+            User View
+        </a>
+        <button type="button" class="btn btn-primary float-end me-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Create User
+        </button>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12" *ngFor="let user of userData;">
+            <div class="container d-flex justify-content-center mt-5">
+                <div class="profile-card">
+                    <div class="profile-image text-center mt-4">
+                        <img [src]='user.avatar' class="img-fluid rounded-circle img-thumbnail" width="130">
+                    </div>
+                    <div class="profile text-center mt-2 text-white">
+                        <h3 class="mt-2">{{user.name}} </h3>
+                        <span class="d-block">{{user.email}}</span>
+                        <span class="d-block mt-1">Software developer and <br> {{user.role}}</span>
+                        <div class="mt-4">
+                            <button class="btn msg-button">Edit</button>
+                            <button class="btn msg-button" (click)="deleteUser(user)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group p-2">
+                            <label class="pb-1" for="name">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter name">
+                        </div>
+                        <div class="form-group p-2">
+                            <label class="pb-1" for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email">
+                        </div>
+                        <div class="form-group p-2">
+                            <label class="pb-1" for="role">Role</label>
+                            <input type="text" class="form-control" id="role" placeholder="Enter role">
+                        </div>
+                        <div class="form-group p-2">
+                            <label class="pb-1" for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
