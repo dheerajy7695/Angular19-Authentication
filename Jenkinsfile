@@ -2,19 +2,27 @@ pipeline {
     agent any
 
     stages {
-        stage('checkout git repo') {
+        stage('Checkout Git') {
             steps {
                 checkout scm
             }
         }
-        stage('install npm') {
+        stage('Install NPM') {
             steps {
+                echo 'Installing dependencies...'
                 bat 'npm install'
             }
         }
-        stage('Test the repo') {
+        stage('Run Tests') {
             steps {
+                echo 'Running unit tests...'
                 bat 'npx ng test --watch=false --browsers=ChromeHeadless'
+            }
+        }
+        stage('Build'){
+            steps{
+                echo 'Building angular project'
+                bat 'npx ng build --configuration=production'
             }
         }
     }
