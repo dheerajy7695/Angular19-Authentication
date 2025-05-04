@@ -7,10 +7,14 @@ pipeline {
                 checkout scm 
             }
         }
-
-        stage('Test the repo'){
+        stage('install npm'){
             steps {
-                bat 'echo npm install'
+                bat 'npm install'
+            }
+        }
+        stage('Test the repo'){
+            steps{
+                bat 'ng test'
             }
         }
     }
