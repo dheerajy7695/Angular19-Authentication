@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Test the repo'){
             steps{
-                bat 'ng test'
+                bat 'npm run test'
             }
         }
     }
