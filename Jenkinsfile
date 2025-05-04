@@ -2,9 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('checkout git repo') {
             steps {
-                echo 'Hello World'
+                checkout scm 
+            }
+        }
+
+        stage('Test the repo'){
+            steps {
+                bat 'echo npm install'
             }
         }
     }
